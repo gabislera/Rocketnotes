@@ -31,11 +31,11 @@ export const GlobalStyle = createGlobalStyle`
       filter: brightness(0.9);
   }
 
-  html {
+  /* html {
     font-size: 62.5%;
     
   }
   body {
       font-size: 1.6rem;
-  }
+  } */
 `
