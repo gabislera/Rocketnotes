@@ -2,7 +2,7 @@ import { Container } from './styles'
 
 interface ButtonProps {
   title: string
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 export function Button({ title, isLoading = false }: ButtonProps) {
