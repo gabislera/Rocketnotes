@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
-export const Container = styled.button`
+interface ButtonTextProps {
+  $isActive: boolean
+}
+
+export const Container = styled.button<ButtonTextProps>`
   background: none;
-  color: ${({ theme }) => theme.purple_400};
+  color: ${({ theme, $isActive }) =>
+    $isActive ? theme.purple_400 : theme.gray_100};
 
   border: none;
   font-size: 1rem;
