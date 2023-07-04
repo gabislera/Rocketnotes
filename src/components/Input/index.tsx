@@ -1,9 +1,9 @@
 import { Container } from './styles'
 
 interface InputProps {
-  icon: any
+  icon?: any
   placeholder: string
-  type: string
+  type?: string
 }
 
 // ...rest
