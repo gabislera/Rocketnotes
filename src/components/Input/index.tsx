@@ -1,18 +1,26 @@
-import { Container } from './styles'
+import { DetailedHTMLProps, InputHTMLAttributes, forwardRef } from 'react'
+import { Container, ErrorMessage } from './styles'
+import { FieldError } from 'react-hook-form'
 
-interface InputProps {
+interface InputProps
+  extends DetailedHTMLProps<
+    InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {
   icon?: any
-  placeholder: string
-  type?: string
+  error?: FieldError
 }
 
-// ...rest
-
-export function Input({ icon: Icon, placeholder, type }: InputProps) {
+const InputBase = ({ icon: Icon, error, ...rest }: InputProps, ref: any) => {
   return (
-    <Container>
-      {Icon && <Icon size={20} />}
-      <input type={type} placeholder={placeholder} />
-    </Container>
+    <>
+      <Container>
+        <input {...rest} ref={ref} />
+        {Icon && <Icon size={20} />}
+      </Container>
+      {!!error && <ErrorMessage>{error.message}</ErrorMessage>}
+    </>
   )
 }
+
+export const Input = forwardRef(InputBase)

@@ -15,17 +15,24 @@ export const Container = styled.div`
     height: 3.5rem;
     width: 100%;
 
-    padding: 1rem;
+    padding: 1rem 3rem;
     color: ${({ theme }) => theme.white};
     background: transparent;
     border: 0;
 
     &:placeholder {
-      color: ${({ theme }) => theme.gray_300};
+      color: ${({ theme }) => theme.gray_800};
     }
   }
 
   > svg {
     margin-left: 1rem;
+    position: absolute;
   }
+`
+export const ErrorMessage = styled.span`
+  color: ${({ theme }) => theme.red_300};
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  align-items: end;
 `
