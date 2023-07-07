@@ -41,7 +41,7 @@ export function Details() {
             <Tag title="express" />
             <Tag title="node" />
           </Section>
-          <Button title="Voltar" isLoading />
+          <Button type="button" title="Voltar" isLoading />
         </Content>
       </main>
     </Container>
