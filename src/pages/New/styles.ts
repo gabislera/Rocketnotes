@@ -18,8 +18,8 @@ export const Container = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
 
-    outline: red dashed 1px;
-    gap: 1rem;
+    /* outline: red dashed 1px; */
+    /* gap: 1rem; */
   }
 `
 export const Form = styled.form`
@@ -33,7 +33,7 @@ export const Form = styled.form`
 
     margin-bottom: 2.25rem;
 
-    a {
+    button {
       font-size: 1.25rem;
       color: ${({ theme }) => theme.gray_100};
     }

@@ -7,9 +7,8 @@ interface NoteItemStyleProps {
 export const Container = styled.div<NoteItemStyleProps>`
   display: flex;
   align-items: center;
-  outline: red dashed 1px;
-
-  /* flex: 1; */
+  position: relative;
+  /* outline: red dashed 1px; */
 
   background-color: ${({ theme, $isNew }) =>
     $isNew ? 'transparent' : theme.gray_900};
@@ -21,7 +20,7 @@ export const Container = styled.div<NoteItemStyleProps>`
 
   margin-bottom: 0.5rem;
   border-radius: 10px;
-  padding-right: 1rem;
+  /* padding-right: 1rem; */
 
   .button-delete {
     color: ${({ theme }) => theme.red_300};
@@ -34,6 +33,9 @@ export const Container = styled.div<NoteItemStyleProps>`
   > button {
     border: none;
     background: none;
+    position: absolute;
+    top: 22px;
+    right: 15px;
   }
 
   > input {

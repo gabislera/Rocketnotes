@@ -4,11 +4,17 @@ interface ButtonProps {
   title: string
   isLoading?: boolean
   type: 'button' | 'reset' | 'submit' | undefined
+  onClick?: any
 }
 
-export function Button({ title, type, isLoading = false }: ButtonProps) {
+export function Button({
+  title,
+  type,
+  isLoading = false,
+  onClick,
+}: ButtonProps) {
   return (
-    <Container type={type} disabled={isLoading}>
+    <Container onClick={onClick} type={type} disabled={isLoading}>
       {isLoading ? 'Carregando...' : title}
     </Container>
   )

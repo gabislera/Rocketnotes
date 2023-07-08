@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+interface InputProps {
+  $isTitle: boolean
+}
+
+export const Container = styled.div<InputProps>`
   width: 100%;
   display: flex;
   align-items: center;
@@ -15,8 +19,10 @@ export const Container = styled.div`
     height: 3.5rem;
     width: 100%;
 
-    padding: 1rem 3rem;
     color: ${({ theme }) => theme.white};
+
+    padding: ${({ $isTitle }) => ($isTitle ? '1rem 1rem' : '1rem 3rem')};
+
     background: transparent;
     border: 0;
 

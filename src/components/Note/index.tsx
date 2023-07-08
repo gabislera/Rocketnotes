@@ -1,3 +1,4 @@
+import { DetailedHTMLProps, HTMLAttributes } from 'react'
 import { Tag } from '../Tags'
 import { Container } from './styles'
 
@@ -8,18 +9,19 @@ interface TagsProps {
 
 interface DataProps {
   title: string
-  tags: TagsProps[]
+  tags?: TagsProps[]
 }
 
-interface NoteProps {
+interface NoteProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   data: DataProps
 }
 
 // ...rest
 
-export function Note({ data }: NoteProps) {
+export function Note({ data, ...rest }: NoteProps) {
   return (
-    <Container>
+    <Container {...rest}>
       <h1>{data.title}</h1>
 
       {data.tags && (

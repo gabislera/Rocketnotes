@@ -9,12 +9,16 @@ interface InputProps
   > {
   icon?: any
   error?: FieldError
+  isTitle?: any
 }
 
-const InputBase = ({ icon: Icon, error, ...rest }: InputProps, ref: any) => {
+const InputBase = (
+  { icon: Icon, error, isTitle, ...rest }: InputProps,
+  ref: any,
+) => {
   return (
     <>
-      <Container>
+      <Container $isTitle={isTitle}>
         <input {...rest} ref={ref} />
         {Icon && <Icon size={20} />}
       </Container>

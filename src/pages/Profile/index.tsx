@@ -2,7 +2,7 @@ import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { Container, Form, Avatar } from './styles'
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth'
 import { useState, FormEvent } from 'react'
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
@@ -22,18 +22,19 @@ export function Profile() {
 
   const [avatar, setAvatar] = useState(user.avatar)
   const [avatarFile, setAvatarFile] = useState(null)
+  const navigate = useNavigate()
 
   async function handleUpdateUser(event: FormEvent<HTMLElement>) {
     event.preventDefault()
     const userData = {
       name,
       email,
-      avatar: user.avatar,
+      avatar: user.avatar, // const userUpdated = Object.assign(userData, updated)
       password: passwordNew,
       old_password: passwordOld,
     }
     await updateProfile({ userData, avatarFile })
-    console.log(avatar)
+    console.log(avatar) // bug avatar
   }
 
   function handleChangeAvatar(event: any) {
@@ -44,12 +45,16 @@ export function Profile() {
     setAvatar(imagePreview) // arrumar para aparecer primeiro preview
   }
 
+  function handleBack() {
+    navigate(-1)
+  }
+
   return (
     <Container>
       <header>
-        <Link to="/">
+        <button type="button" onClick={handleBack}>
           <FiArrowLeft />
-        </Link>
+        </button>
       </header>
 
       <Form onSubmit={handleUpdateUser}>

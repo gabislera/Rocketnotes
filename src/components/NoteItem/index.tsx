@@ -3,9 +3,10 @@ import { Container } from './styles'
 
 interface NoteItemProps {
   isNew?: any
-  value?: string
+  value?: any
   onClick?: any
   placeholder?: string
+  onChange?: any
 }
 
 // ...rest
@@ -15,6 +16,7 @@ export function NoteItem({
   value,
   onClick,
   placeholder,
+  onChange,
 }: NoteItemProps) {
   return (
     <Container $isNew={isNew}>
@@ -23,6 +25,7 @@ export function NoteItem({
         type="text"
         value={value}
         readOnly={!isNew}
+        onChange={onChange}
       />
 
       <button
