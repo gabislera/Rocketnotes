@@ -15,13 +15,14 @@ interface DataProps {
 interface NoteProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   data: DataProps
+  onClick: () => void
 }
 
 // ...rest
 
-export function Note({ data, ...rest }: NoteProps) {
+export function Note({ data, onClick }: NoteProps) {
   return (
-    <Container {...rest}>
+    <Container onClick={onClick}>
       <h1>{data.title}</h1>
 
       {data.tags && (

@@ -21,7 +21,7 @@ interface NoteProps {
 }
 
 export function Home() {
-  const [tags, setTags] = useState([])
+  const [tags, setTags] = useState<TagProps[]>([])
   const [search, setSearch] = useState('')
   const [tagsSelected, setTagsSelected] = useState<TagProps[]>([])
   const [notes, setNotes] = useState<NoteProps[]>([])
@@ -85,7 +85,7 @@ export function Home() {
           />
         </li>
         {tags &&
-          tags.map((tag: TagProps) => (
+          tags.map((tag: any) => (
             <li key={tag.id}>
               <ButtonText
                 onClick={() => handleTagSelected(tag.name)}
